@@ -1,52 +1,126 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_flutter_dicoding/data/ImagesData.dart';
 
 class MainScreen extends StatelessWidget {
-  final List<int> numList = [1, 2, 3, 4, 5, 6, 7, 8];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Personalize your gift cards',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              FormInput(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class FormInput extends StatefulWidget {
+  @override
+  _FormInput createState() => _FormInput();
+}
+
+class _FormInput extends State<FormInput> {
+  String title = '';
+  String description = '';
+  String cardFrom = '';
+  String cardFor = '';
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Gift Card'),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                'Personalize your gift cards',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              const Text(
+                'Edit your text here',
+                textAlign: TextAlign.center,
+              ),
+              TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Write title card here',
+                  labelText: 'Title',
                 ),
-                textAlign: TextAlign.center,
+                textCapitalization: TextCapitalization.words,
+                onChanged: (String value) {
+                  setState(() {
+                    title = value;
+                  });
+                },
               ),
-            ),
-            Container(
-              child: Text(
-                'Choose your image, edit the text, and get the image',
-                textAlign: TextAlign.center,
+              TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Write description card here',
+                  labelText: 'Description',
+                ),
+                textCapitalization: TextCapitalization.sentences,
+                onChanged: (String value) {
+                  setState(() {
+                    description = value;
+                  });
+                },
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(16.0),
-              child: Wrap(
-                spacing: 16.0,
-                runSpacing: 16.0,
-                children: numList.map((e) {
-                  return Container(
-                    width: width * 0.44,
-                    height: width * 0.44,
-                    color: Colors.green,
-                  );
-                }).toList(),
+              TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Write card from...',
+                  labelText: 'Card From',
+                ),
+                textCapitalization: TextCapitalization.words,
+                onChanged: (String value) {
+                  setState(() {
+                    cardFrom = value;
+                  });
+                },
               ),
-            ),
-          ],
-        ),
+              TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Write card to...',
+                  labelText: 'Card For',
+                ),
+                textCapitalization: TextCapitalization.words,
+                onChanged: (String value) {
+                  setState(() {
+                    cardFor = value;
+                  });
+                },
+              ),
+            ],
+          ),
+          Wrap(
+            spacing: 16.0,
+            runSpacing: 16.0,
+            children: imagesData.map((e) {
+              return SizedBox(
+                width: width * 0.44,
+                height: width * 0.44,
+                child: Expanded(
+                  flex: 1,
+                  child: Image.asset(e.imageAsset),
+                ),
+              );
+            }).toList(),
+          ),
+        ],
       ),
     );
   }
