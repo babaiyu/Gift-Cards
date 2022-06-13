@@ -16,7 +16,10 @@ class CardPreview extends StatelessWidget {
             children: <Widget>[
               Stack(
                 children: <Widget>[
-                  Image.asset(cardData.imageAsset),
+                  Hero(
+                    tag: 'banner_${cardData.imageAsset}',
+                    child: Image.asset(cardData.imageAsset),
+                  ),
                   Center(
                     child: Column(
                       children: <Widget>[
@@ -29,6 +32,7 @@ class CardPreview extends StatelessWidget {
                               style: const TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.w500,
+                                fontFamily: 'Joan',
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -41,6 +45,7 @@ class CardPreview extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                               fontStyle: FontStyle.italic,
+                              fontFamily: 'Joan',
                             ),
                           ),
                         ),
@@ -49,16 +54,18 @@ class CardPreview extends StatelessWidget {
                           child: Text(
                             '- ${cardData.cardFor}',
                             textAlign: TextAlign.center,
+                            style: const TextStyle(fontFamily: 'Joan'),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 16.0,
-                            vertical: 32.0,
+                            vertical: 16.0,
                           ),
                           child: Text(
                             'from: ${cardData.cardFrom}',
                             textAlign: TextAlign.center,
+                            style: const TextStyle(fontFamily: 'Joan'),
                           ),
                         ),
                       ],

@@ -127,7 +127,10 @@ class _FormInput extends State<FormInput> {
                 child: SizedBox(
                   width: width * 0.44,
                   height: width * 0.44,
-                  child: Image.asset(e.imageAsset),
+                  child: Hero(
+                    tag: 'banner_${e.imageAsset}',
+                    child: Image.asset(e.imageAsset),
+                  ),
                 ),
               );
             }).toList(),
