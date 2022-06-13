@@ -9,7 +9,9 @@ class Main extends StatelessWidget {
     return MaterialApp(
       title: 'Give Cards',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
+      theme: ThemeData(
+        fontFamily: 'Joan',
+      ),
       home: MainScreen(),
     );
   }
