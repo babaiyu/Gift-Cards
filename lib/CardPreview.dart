@@ -73,6 +73,13 @@ class CardPreview extends StatelessWidget {
                   ),
                 ],
               ),
+              Container(
+                margin: const EdgeInsets.all(16.0),
+                child: const Text(
+                  'This is you gift card preview, looks very nice right?',
+                  style: TextStyle(fontFamily: 'Joan'),
+                ),
+              ),
             ],
           ),
         ),

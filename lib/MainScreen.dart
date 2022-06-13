@@ -17,9 +17,9 @@ class MainScreen extends StatelessWidget {
                 child: Text(
                   'Personalize your gift cards',
                   style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Joan'),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -57,6 +57,7 @@ class _FormInput extends State<FormInput> {
               const Text(
                 'Edit your text here',
                 textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'Joan'),
               ),
               TextField(
                 decoration: const InputDecoration(
@@ -107,6 +108,14 @@ class _FormInput extends State<FormInput> {
                 },
               ),
             ],
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 32.0),
+            child: const Text(
+              'Choose one of ours below images',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontFamily: 'Joan'),
+            ),
           ),
           Wrap(
             spacing: 16.0,
