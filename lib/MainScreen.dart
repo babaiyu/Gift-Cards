@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_flutter_dicoding/CardPreview.dart';
+import 'package:tugas_flutter_dicoding/data/CardData.dart';
 import 'package:tugas_flutter_dicoding/data/ImagesData.dart';
 
 class MainScreen extends StatelessWidget {
@@ -110,10 +112,23 @@ class _FormInput extends State<FormInput> {
             spacing: 16.0,
             runSpacing: 16.0,
             children: imagesData.map((e) {
-              return SizedBox(
-                width: width * 0.44,
-                height: width * 0.44,
-                child: Image.asset(e.imageAsset),
+              return InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    final CardData cardData = CardData(
+                        title: title,
+                        description: description,
+                        cardFrom: cardFrom,
+                        cardFor: cardFor,
+                        imageAsset: e.imageAsset);
+                    return CardPreview(cardData: cardData);
+                  }));
+                },
+                child: SizedBox(
+                  width: width * 0.44,
+                  height: width * 0.44,
+                  child: Image.asset(e.imageAsset),
+                ),
               );
             }).toList(),
           ),
