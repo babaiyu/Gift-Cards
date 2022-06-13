@@ -10,5 +10,3 @@ Gift card android app created using Flutter
   - [Card 4](https://www.freepik.com/author/visnezh)
   - [Card 5](https://www.freepik.com/author/freepik)
   - [Card 6](https://www.freepik.com/author/rawpixel-com)
-
-### Referrence Articles
