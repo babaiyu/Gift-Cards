@@ -113,10 +113,7 @@ class _FormInput extends State<FormInput> {
               return SizedBox(
                 width: width * 0.44,
                 height: width * 0.44,
-                child: Expanded(
-                  flex: 1,
-                  child: Image.asset(e.imageAsset),
-                ),
+                child: Image.asset(e.imageAsset),
               );
             }).toList(),
           ),
