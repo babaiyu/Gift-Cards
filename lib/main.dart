@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_flutter_dicoding/MainScreen.dart';
+import 'package:tugas_flutter_dicoding/SplashScreen.dart';
 
 void main() => runApp(Main());
 
@@ -9,10 +9,7 @@ class Main extends StatelessWidget {
     return MaterialApp(
       title: 'Give Cards',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'Joan',
-      ),
-      home: MainScreen(),
+      home: SplashScreen(),
     );
   }
 }
